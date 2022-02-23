@@ -27,8 +27,8 @@ describe DockingStation do
   end
 
   it 'can store 20 bikes in the instance variable' do 
-    20.times { subject.docking_bike(Bike.new) }
-    expect(subject.stored_bikes.count).to eq 20
+    subject.DEFAULT_CAPACITY.times { subject.docking_bike(Bike.new) }
+    expect(subject.stored_bikes.count).to eq subject.DEFAULT_CAPACITY
   end
 
   it 'raises an error when the dock capacity is exceeded' do
