@@ -34,7 +34,14 @@ end
 
 describe DockingStation do
   it { 
-    subject.docking_bike(Bike.new) # needs to be 1 in dock so that the below will cause an error
+    20.times { subject.docking_bike(Bike.new) }
+    expect(subject.stored_bikes.count).to eq 20
+   }
+end
+
+describe DockingStation do
+  it { 
+    20.times {subject.docking_bike(Bike.new) }# needs to be 20 in dock so that the below will cause an error
     expect { subject.docking_bike(Bike.new) }.to raise_error(DockFullError) 
   }
 end
