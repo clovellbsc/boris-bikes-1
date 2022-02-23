@@ -5,9 +5,15 @@ describe DockingStation do
 end
 
 describe DockingStation do
-  it { expect(subject.release_bike).to be_a Bike }
+  it { 
+    subject.docking_bike(Bike.new)
+    expect(subject.release_bike).to be_a Bike 
+  }
 
-  it { expect(subject.release_bike.working?).to eq true }
+  it { 
+    subject.docking_bike(Bike.new)
+    expect(subject.release_bike.working?).to eq true 
+  }
 end
 
 describe DockingStation do
@@ -20,4 +26,8 @@ describe DockingStation do
     subject.docking_bike(new_bike)
     expect(subject.instance_variable_get(:@stored_bikes)).to eql([new_bike])
   end
+end
+
+describe DockingStation do
+  it { expect {subject.release_bike}.to raise_error(NoBikeError) }
 end

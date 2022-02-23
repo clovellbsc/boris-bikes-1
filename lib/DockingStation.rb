@@ -5,10 +5,9 @@ class DockingStation
     @stored_bikes = []
   end
 
-  def release_bike 
-     bike = Bike.new
-
-     return bike
+  def release_bike
+    return Bike.new unless @stored_bikes.empty? 
+    raise NoBikeError
   end
 
   def docking_bike(bike)
@@ -21,3 +20,7 @@ class Bike
     true
   end
 end
+
+class NoBikeError < StandardError
+end
+
