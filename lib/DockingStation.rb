@@ -6,14 +6,13 @@ class DockingStation
   end
 
   def release_bike
-    return Bike.new unless @stored_bikes.empty? 
-    raise NoBikeError
+    raise NoBikeError if @stored_bikes.empty? 
+    @stored_bikes.pop
   end
 
   def docking_bike(bike)
     raise DockFullError unless @stored_bikes.count < 20
     @stored_bikes << bike 
-    
   end
 end
 
