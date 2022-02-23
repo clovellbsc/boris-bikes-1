@@ -31,3 +31,7 @@ end
 describe DockingStation do
   it { expect {subject.release_bike}.to raise_error(NoBikeError) }
 end
+
+describe DockingStation do
+  it { expect { subject.docking_bike }.to raise_error(DockFullError) }
+end
