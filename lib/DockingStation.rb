@@ -11,7 +11,9 @@ class DockingStation
   end
 
   def docking_bike(bike)
-    @stored_bikes << bike
+    raise DockFullError unless @stored_bikes.length < 1
+    @stored_bikes << bike 
+    
   end
 end
 
@@ -24,3 +26,5 @@ end
 class NoBikeError < StandardError
 end
 
+class DockFullError < StandardError
+end

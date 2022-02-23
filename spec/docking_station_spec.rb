@@ -33,5 +33,8 @@ describe DockingStation do
 end
 
 describe DockingStation do
-  it { expect { subject.docking_bike }.to raise_error(DockFullError) }
+  it { 
+    subject.docking_bike(Bike.new) # needs to be 1 in dock so that the below will cause an error
+    expect { subject.docking_bike(Bike.new) }.to raise_error(DockFullError) 
+  }
 end
