@@ -1,9 +1,5 @@
 require "DockingStation.rb"
-
-# describe DockingStation do
-#   it { expect(subject).to respond_to(:release_bike) }
-#   it { is_expected.to respond_to :release_bike }
-# end ****CHECK WITH LEO IN THE AM**** ALSO FIND OUT ABOUT THE WORKING TO BE_WORKING THING
+require "bike.rb"
 
 describe DockingStation do
   it 'responds to release bike' do 
