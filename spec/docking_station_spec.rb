@@ -18,8 +18,8 @@ describe DockingStation do
 
   it 'can be passed a new Bike object and be stored in the instance variable' do
     new_bike = Bike.new
-    subject.docking_bike(new_bike)
-    expect(subject.instance_variable_get(:@stored_bikes)).to eql([new_bike])
+    
+    expect(subject.docking_bike(new_bike)).to eql([new_bike])
   end
 
   it 'raises an error when trying to release a bike from an empty dock' do
