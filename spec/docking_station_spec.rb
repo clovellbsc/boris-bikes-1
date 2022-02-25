@@ -27,12 +27,18 @@ describe DockingStation do
   end
 
   it 'can store 20 bikes in the instance variable' do 
-    subject.DEFAULT_CAPACITY.times { subject.docking_bike(Bike.new) }
-    expect(subject.stored_bikes.count).to eq subject.DEFAULT_CAPACITY
+    subject.CAPACITY.times { subject.docking_bike(Bike.new) }
+    expect(subject.stored_bikes.count).to eq subject.CAPACITY
   end
 
   it 'raises an error when the dock capacity is exceeded' do
     20.times {subject.docking_bike(Bike.new) }# needs to be 20 in dock so that the below will cause an error
     expect { subject.docking_bike(Bike.new) }.to raise_error(DockFullError) 
+  end
+
+  it 'ability to set a variable capacity that defaults to 20 with no input' do
+    expect(subject().CAPACITY).to eq(20)
+    dock = DockingStation.new(10)
+    expect(dock.CAPACITY).to eq(10)
   end
 end
