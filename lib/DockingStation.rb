@@ -1,4 +1,4 @@
-require "bike.rb"
+require_relative "bike"
 
 class DockingStation
   attr_reader :stored_bikes
