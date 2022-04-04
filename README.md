@@ -128,5 +128,5 @@ The program contains a series of tests using Rspec (this library should be insta
 To run all tests across all class files, do the following:
 
 ```
-rspec
+$ rspec
 ```
